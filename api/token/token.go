@@ -23,7 +23,6 @@ func GenereteJWTToken(user *pb.LoginUserResponse) *Tokens {
 	rftclaims := refreshToken.Claims.(jwt.MapClaims)
 	rftclaims["user_id"] = user.Id
 	rftclaims["username"] = user.UserName
-	rftclaims["email"] = user.SolderId
 	rftclaims["iat"] = time.Now().Unix()
 	rftclaims["exp"] = time.Now().Add(24 * time.Hour).Unix()
 	refresh, err := refreshToken.SignedString([]byte(tokenKey))

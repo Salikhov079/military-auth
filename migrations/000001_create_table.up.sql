@@ -9,16 +9,17 @@ create table admins(
 );
 
 
-INSERT INTO admins (user_name, password, soldier_id)
+INSERT INTO admins (user_name, password)
 VALUES
-('user1', 'password1', '4643a4a1-b71a-4fa4-bde8-27e80707a1ed'),
-('user2', 'password2', '4643a4a1-b71a-4fa4-bde8-27e80707a1ed'),
-('user3', 'password3', '4643a4a1-b71a-4fa4-bde8-27e80707a1ed'),
-('user4', 'password4', '4643a4a1-b71a-4fa4-bde8-27e80707a1ed'),
-('user5', 'password5', '4643a4a1-b71a-4fa4-bde8-27e80707a1ed');
+('user1', 'password1'),
+('user2', 'password2'),
+('user3', 'password3'),
+('user4', 'password4'),
+('user5', 'password5');
 
 
 
-INSERT INTO admins (user_name, password, soldier_id)
+INSERT INTO admins (user_name, password)
 VALUES
-('dilshod', '1234', '4643a4a1-b71a-4fa4-bde8-27e80707a1ed'),
+('dilshod', '1234'),
+('string', 'string');

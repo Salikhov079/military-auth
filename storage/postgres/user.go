@@ -16,15 +16,14 @@ func NewUserStorage(db *sql.DB) *UserStorage {
 
 func (p *UserStorage) LoginUser(user *pb.LoginUserRequest) (*pb.LoginUserResponse, error) {
 	query := `
-			SELECT id, user_name, soldier_id from admins 
+			SELECT id, user_name from admins 
 			where user_name =$1 and password=$2 and delated_at=0
 		`
 	row := p.db.QueryRow(query, user.UserName, user.Password)
 
 	var users pb.LoginUserResponse
 
-	err := row.Scan(&users.Id,&users.UserName,
-		&users.SolderId)
+	err := row.Scan(&users.Id,&users.UserName)
 	if err != nil {
 		return nil, err
 	}

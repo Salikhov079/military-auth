@@ -1,0 +1,49 @@
+basePath: /
+definitions:
+  genprotos.LoginUserRequest:
+    properties:
+      password:
+        type: string
+      user_name:
+        type: string
+    type: object
+host: localhost:8081
+info:
+  contact: {}
+  description: Voting service
+  version: "1.0"
+paths:
+  /user/login:
+    post:
+      consumes:
+      - application/json
+      description: LoginUser page
+      parameters:
+      - description: Create
+        in: body
+        name: Create
+        required: true
+        schema:
+          $ref: '#/definitions/genprotos.LoginUserRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: LoginUser Successful
+          schema:
+            type: string
+        "401":
+          description: Error while LoginUserd
+          schema:
+            type: string
+      security:
+      - BearerAuth: []
+      summary: /LoginUser
+      tags:
+      - User
+securityDefinitions:
+  BearerAuth:
+    in: header
+    name: Authourization
+    type: apiKey
+swagger: "2.0"
